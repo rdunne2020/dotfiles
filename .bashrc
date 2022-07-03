@@ -1,23 +1,61 @@
 # .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# For the Prompt
+
+function parse_git_branch() {
+        BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+        if [ ! "${BRANCH}" == "" ]
+        then
+            echo -e " ⎇ ${BRANCH}"
+
+            # TODO: Figure out why this is kinda slow
+            # if [[ $(git status --porcelain) ]] ; then
+                # echo -e "\e[30;48;5;208m ${BRANCH} * \e[0m"
+            # else
+                # echo -e "\e[30;48;5;208m ${BRANCH} \e[0m"
+            # fi
+
+        else
+                echo ""
+        fi
+}
+
+export PS1="\[\033[38;2;122;186;204m\][ \[\033[38;2;133;161;242m\]\h ∴ \W\[\033[38;2;219;112;204m\]\`parse_git_branch\` \[\033[38;2;122;186;204m\]] \[\033[38;2;91;195;250m\]$ \[\033[00m\]"
+
 alias enw='emacs -nw'
 alias vicky='vim -R'
 alias lstr='exa -l --sort oldest'
 alias la='exa --all'
 alias ls='exa'
 alias ll='exa -lhb --octal-permissions'
+alias sl='echo Choo Choo'
+alias fd='fd -LH'
 
 alias gba='git branch -a'
 alias gbavv='git branch -avv'
 alias gitgraph='git log --graph --decorate --color --all --oneline'
 alias gbr='git branch -r'
 alias gd='git diff'
+# Ignore whitespace in your diff
+alias gdb='git diff -b'
 alias gs='git status'
 alias gbvv='git branch -vv'
 alias gbu='git branch -u'
 
-alias myTmux='source ~/.tmux.sh'
+# Remove the copyright prompt from gdb on startup
+alias gdb='gdb -q'
 
-alias myMemUsage='ps aux --sort -pmem | grep -e "username" -e "%MEM"'
+alias myMemUsage='ps aux --sort -pmem | grep -e "$USER" -e "%MEM"'
+
+export PATH=${PATH}:/storage/rdunne/scripts
+export PATH=${PATH}:/storage/rdunne/exec/bin
+export VALGRIND_LIB=/storage/rdunne/exec/valgrind/usr/libexec/valgrind/
+export PYTHONPATH=/storage/rdunne/exec/psutil/usr/local/lib64/python3.6/site-packages
 
 glog()
 {
@@ -31,6 +69,7 @@ lsg(){
 		ls $1 | grep $2
     fi
 }
+
 
 # See if ripgrep is installed
 which rg >& /dev/null
@@ -75,7 +114,7 @@ deepfind(){
     elif (( $# == 1 )); then
 		find . \( -type d -o -type f -o -type l \) -iname "*${1}*" 2>/dev/null
     else
-        find ${1} \( -type d -o -type f -o -type l \) -iname "*${2}*" 2>/dev/null
+        find ${2} \( -type d -o -type f -o -type l \) -iname "*${1}*" 2>/dev/null
     fi
 }
 
@@ -98,12 +137,14 @@ formatCpp()
         echo "Error, give a file to format"
     elif (( $# == 1 )); then
         echo ${1}
+		cp ${1} /storage/rdunne/tmp/format_backups/${1}.unformatted
         clang-format --style=file -i ${1}
     else
         args=( $@ )
         for file in "${args[@]}"
         do
             echo $file
+			cp ${file} /storage/rdunne/tmp/format_backups/${file}.unformatted
             clang-format --style=file -i ${file}
         done
     fi
@@ -132,6 +173,23 @@ getUser()
 unwrapRpm()
 {
     rpm2cpio ${1} | cpio -idmv
+}
+
+repoQuery()
+{
+   sort <(sed -e 's/ [| \\\_]\+\|-[[:digit:]]\+..*\|[[:digit:]]\://g' <(repoquery --tree --requires $1)) | uniq
+}
+
+splitIso()
+{
+   #split iso into partAA partAB etc
+   split -b 3G $1 part
+}
+
+#1st arg is the split name, 2nd arg is your iso name
+restoreIso()
+{
+   cat ${1}* > ${2}
 }
 
 #another mem command echo 0 $(awk '/Rss/ {print "+", $2}' /proc/PID/smaps) | bc

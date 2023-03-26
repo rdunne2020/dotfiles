@@ -9,8 +9,11 @@ fi
 
 # Check for ~/.oh-my-zsh or for the value to have been set to something else
 if [[ -v ${ZSH} || ! -d ~/.oh-my-zsh/ ]]; then
-    # Install Oh-My-Zsh
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    # Install Oh-My-Zsh in batch mode with --batch
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -s --batch || {
+        echo "Could Not Install OhMyZsh" > /dev/stderr
+        exit 1
+    }
 fi
 
 # Clone the necessary plugins in

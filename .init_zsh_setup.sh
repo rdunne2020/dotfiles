@@ -3,8 +3,8 @@
 # Check if there's an existing .zshrc file, if so that's bad, back it up and remove it so that oh-my-zsh can clean install
 
 if [[ -f ~/.zshrc ]]; then
-    echo "You have an existing .zshrc file, backing it up to ~/.zshrc_init_backup and removing .zshrc"
-    mv ~/.zshrc ~/.zshrc_init_backup
+    echo "You have an existing .zshrc file, backing it up to ~/.zshrc_init_backup"
+    cp ~/.zshrc ~/.zshrc_init_backup
 fi
 
 # Check for ~/.oh-my-zsh or for the value to have been set to something else
@@ -25,7 +25,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 sed -i 's/plugins\=.*/plugins\=\(git\ fd\ zsh-autosuggestions\)/' ~/.zshrc
 
 # Update the ZSH_THEME from ohmyzsh
-sed -i 's/ZSH_THEME\=*/ZSH_THEME\=jaischeema/' ~/.zshrc
+sed -i 's/ZSH_THEME\=.*/ZSH_THEME\=jaischeema/' ~/.zshrc
 
 # If the zsh aliases file exists, add that to zshrc
 if [[ -f ~/.zsh_aliases ]]; then
@@ -33,7 +33,7 @@ if [[ -f ~/.zsh_aliases ]]; then
 fi
 
 # Source the sytnax-highlighting in main .zshrc
-echo "source ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.sh" >> ~/.zshrc
+echo "source ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc
 
 # Source zshrc
 . ~/.zshrc

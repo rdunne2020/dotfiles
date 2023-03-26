@@ -1,0 +1,19 @@
+alias la='exa --all'
+alias ls='exa'
+alias ll='exa -lhb --octal-permissions'
+alias gitgraph='git log --graph --decorate --color --all --oneline'
+
+function glog()
+{
+	git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+}
+
+function gbranch()
+{
+    if (( $# == 2 )); then
+        git branch --track ${1} ${2} #the second arg is the upstream branch
+        git checkout ${1}
+    else
+        echo "Need a branch name and upstream track"
+    fi
+}

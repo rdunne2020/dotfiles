@@ -1,4 +1,4 @@
 -- Plugin management with Packer
-require("plugins")
-require("mappings")
-require("options")
+require("core.plugins")
+-- require("mappings")
+-- require("options")

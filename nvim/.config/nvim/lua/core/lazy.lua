@@ -20,4 +20,13 @@ vim.g.mapleader = " "
 
 -- plugins should be a table of plugins, or a string of where to find your plugin spec
 -- opts is this https://github.com/folke/lazy.nvim#%EF%B8%8F-configuration, but can be updated
-require("lazy").setup(plugins, opts)
+require("lazy").setup("core.plugins", {
+  install = {
+    -- Install missing deps on startup when true
+    missing = false,
+  },
+  change_detection = {
+    enabled = true,
+    notify = true,
+  },
+})

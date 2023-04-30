@@ -2,7 +2,7 @@ local M = {}
 
 -- theme: nightfox, tokyonight, tundra; default is catppuccin
 -- refer to the themes settings file for different styles
-M.theme = ""
+M.theme = "tundra"
 -- Toggle global status line
 M.global_statusline = true
 -- use rg instead of grep
@@ -19,14 +19,14 @@ M.showtabline = 1
 M.list = false
 -- which list chars to schow
 M.listchars = "eol:¬,tab:>·,trail:~,extends:>,precedes:<"
--- enable PackerSync on plugins.lua save
-M.packer_auto_sync = false
 -- Disable integration of Neovim's statusline in your Tmux status
 -- See https://github.com/vimpostor/vim-tpipeline#installation
 -- M.disable_tmux_statusline_integration = true
 -- Disable https://github.com/norcalli/nvim-colorizer.lua
 -- due to causing lags with live_grep in some circumstances
 M.disable_colorizer = false
+-- turn on noice which will hijack the UI
+M.enable_noice = true
 -- Disable winbar with nvim-navic location
 M.disable_winbar = false
 -- Number of recent files shown in dashboard
@@ -40,25 +40,37 @@ M.disable_dashboard_quick_links = false
 -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 M.treesitter_ensure_installed = {
   "bash",
+  "c",
   "cmake",
-  -- "css",
+  "cpp",
+  "css",
   "dockerfile",
   "go",
   "hcl",
-  -- "html",
-  -- "java",
-  -- "javascript",
+  "html",
+  "javascript",
   "json",
-  -- "kotlin",
   "latex",
   "ledger",
   "lua",
+  "make",
   "markdown",
+  "markdown_inline",
   "python",
   "regex",
   "rust",
+  "scss",
+  "sql",
+  "svelte",
+  "terraform",
   "toml",
+  "typescript",
   "yaml",
+}
+
+M.lsp_servers = {
+  "rust_analyzer",
+  "lua_ls",
 }
 
 return M

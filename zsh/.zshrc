@@ -4,6 +4,11 @@
 # Plugins
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
+
+# Load my aliases before we set ls == exa
+plug "${HOME}/.config/zsh/zsh_aliases"
+plug "${HOME}/.config/zsh/zsh_exports"
+
 plug "zap-zsh/fzf"
 plug "rdunne2020/zap-exa"
 
@@ -13,6 +18,3 @@ plug "zap-zsh/atmachine-prompt"
 #TODO:
 # Install nerdfont and setup alacritty with it
 
-# Load my aliases
-plug "${HOME}/.config/zsh/zsh_aliases"
-plug "${HOME}/.config/zsh/zsh_exports"

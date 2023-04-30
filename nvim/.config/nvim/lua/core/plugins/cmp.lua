@@ -35,7 +35,6 @@ local M = {
                     require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
                 end 
             },
-            -- TODO: Add in Mappings, the defaults are poo
             mapping = {
                 ["<C-d>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-u>"] = cmp.mapping.scroll_docs(4),

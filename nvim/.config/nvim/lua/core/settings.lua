@@ -69,8 +69,19 @@ M.treesitter_ensure_installed = {
 }
 
 M.lsp_servers = {
-  "rust_analyzer",
+  "ansiblels",
+  "bashls",
+  "ccls",
+  "cmake",
+  "cssls",
+  "dockerls",
+  "jsonls",
   "lua_ls",
+  "pyright",
+  "svelte",
+  "terraform_lsp",
+  "rust_analyzer",
+  "yamlls",
 }
 
 return M

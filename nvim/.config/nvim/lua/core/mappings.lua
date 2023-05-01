@@ -27,8 +27,8 @@ map("n", "<esc>", ":nohlsearch<Bar>:echo<CR>", default_options)
 
 -- move over a closing element in insert mode
 map("i", "<C-l>", function()
-  return "core.utils.functions".escapePair()
-end, default_options)
+  return require("core.utils.functions").escapePair()
+end)
 
 -- toggles
 map("n", "<leader>th", function()

@@ -17,7 +17,7 @@ local M = {
             formatting = {
                 format = lspkind.cmp_format({
                     with_text = false,
-                    maxwidth = 50,
+                    maxwidth = 75,
                     mode = "symbol",
                     menu = {
                         buffer = "BUF",
@@ -33,7 +33,7 @@ local M = {
                 -- REQUIRED - you must specify a snippet engine
                 expand = function(args)
                     require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-                end 
+                end
             },
             mapping = {
                 ["<C-d>"] = cmp.mapping.scroll_docs(-4),

@@ -71,7 +71,7 @@ M.treesitter_ensure_installed = {
 M.lsp_servers = {
   "ansiblels",
   "bashls",
-  "ccls",
+  "clangd",
   "cmake",
   "cssls",
   "dockerls",
@@ -79,7 +79,7 @@ M.lsp_servers = {
   "lua_ls",
   "pyright",
   "svelte",
-  "terraform_lsp",
+  "terraformls",
   "rust_analyzer",
   "yamlls",
 }

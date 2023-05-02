@@ -18,3 +18,6 @@ plug "zap-zsh/atmachine-prompt"
 #TODO:
 # Install nerdfont and setup alacritty with it
 
+# Let C-arrow keys move words
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word

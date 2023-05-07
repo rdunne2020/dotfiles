@@ -1,10 +1,13 @@
 local M = {
     "stevearc/oil.nvim",
     cmd = "Oil",
-    dependencies = { 
+    dependencies = {
         { "nvim-tree/nvim-web-devicons", lazy = true },
     },
-    config = function() 
+    keys = {
+        {"<leader>oo", "<Cmd>Oil .<cr>", desc="Run Oil on cwd"}
+    },
+    config = function()
         vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
         require("oil").setup({
             columns = {
@@ -13,6 +16,7 @@ local M = {
                 "size",
                 "mtime",
             },
+            default_file_explorer = true,
             keymaps = {
                 ["g?"] = "actions.show_help",
                 ["<CR>"] = "actions.select",

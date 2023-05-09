@@ -17,7 +17,7 @@ for _, lsp in ipairs(settings.lsp_servers) do
     nvim_lsp[lsp].setup({
         before_init = function(_, config)
             -- If python make sure the venv is taken into acct
-            if lsp == pyright then
+            if lsp == "pyright" then
                 config.settings.python.pythonPath = utils.get_python_path(config.root_dir)
             end
         end

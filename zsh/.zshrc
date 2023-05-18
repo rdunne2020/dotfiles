@@ -3,6 +3,7 @@
 
 # Plugins
 plug "zsh-users/zsh-autosuggestions"
+plug "marlonrichert/zsh-autocomplete"
 plug "zsh-users/zsh-syntax-highlighting"
 
 # Load my aliases before we set ls == exa

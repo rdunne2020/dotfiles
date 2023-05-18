@@ -17,3 +17,11 @@ function gbranch()
         echo "Need a branch name and upstream track"
     fi
 }
+
+function rm_file_spaces()
+{
+    FILES=( * )
+    for f in ${FILES[@]}; do
+        mv "{f}" "{f// /_}"
+    done
+}

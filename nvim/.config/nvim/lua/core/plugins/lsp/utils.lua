@@ -1,4 +1,4 @@
-local utils = require("core.utils.functions")
+local utils = require("config.utils.functions")
 M = {}
 
 -- TODO: refactor

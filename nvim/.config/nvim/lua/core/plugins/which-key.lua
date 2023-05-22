@@ -1,7 +1,7 @@
 local M = {
     "folke/which-key.nvim",
     config = function()
-      local icons = require("core.utils.icons")
+      local icons = require("config.utils.icons")
       -- Set in options.lua
       -- vim.o.timeout = true
       -- vim.o.timeoutlen = 300

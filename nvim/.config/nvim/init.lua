@@ -1,8 +1,8 @@
 -- Plugin management with lazy
 require("core.lazy")
 
-require("core.mappings")
-require("core.options")
-require("core.autocmd")
+require("config.mappings")
+require("config.options")
+require("config.autocmd")
 -- require("mappings")
 -- require("options")

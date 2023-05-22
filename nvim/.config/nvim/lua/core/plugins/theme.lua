@@ -1,4 +1,4 @@
-local settings = require("core.settings")
+local settings = require("config.settings")
 
 if settings.theme == "nightfox" then
   return {

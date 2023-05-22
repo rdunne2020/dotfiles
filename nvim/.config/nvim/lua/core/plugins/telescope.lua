@@ -37,7 +37,7 @@ local M = {
         -- files
         { "<leader>fb", "<cmd>Telescope file_browser grouped=true<cr>", desc = "Filebrowser" },
         { "<leader>fz", "<cmd>Telescope zoxide list<cr>", desc = "Zoxide" },
-        { "<leader>ff", "<cmd>" .. require("core.utils.functions").project_files() .. "<cr>", desc = "Open file" },
+        { "<leader>ff", "<cmd>" .. require("config.utils.functions").project_files() .. "<cr>", desc = "Open file" },
         { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent files" },
         -- misc
         { "<leader>mt", "<cmd>Telescope<cr>", desc = "Telescope" },

@@ -1,4 +1,4 @@
-local settings = require("core.settings")
+local settings = require("config.settings")
 local nvim_lsp = require("lspconfig")
 local utils = require("core.plugins.lsp.utils")
 -- local lsp_settings = require("core.plugins.lsp.settings")
@@ -8,7 +8,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- What does this do?
-require("core.utils.functions").on_attach(function(client, buffer)
+require("config.utils.functions").on_attach(function(client, buffer)
     require("core.plugins.lsp.keys").on_attach(client, buffer)
 end)
 

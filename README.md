@@ -25,7 +25,7 @@ Need More Keybindings Still
 | ~ | Open Terminal |
 | . | Toggle Hidden |
 
-*Note: * Opening terminal in Oil is currently broken
+*Note:* Opening terminal in Oil is currently broken
 
 ### ToggleTerm
 | Key | Action |
@@ -33,7 +33,7 @@ Need More Keybindings Still
 | C-t | Open Terminal |
 | C-h,j,k,l | Move to other panes |
 
-*Note: * Outside of opening up the terminal, all other keybinds happen when in insert mode in the terminal
+*Note:* Outside of opening up the terminal, all other keybinds happen when in insert mode in the terminal
 
 ### Telescope
 | Key | Action |

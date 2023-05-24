@@ -2,6 +2,8 @@ Neovim config shamelessly stolen from this [repo](https://github.com/Allaman/nvi
 
 Please look there for an actual good implementation of neovim
 
+Need More Keybindings Still
+
 ## Neovim Keybindings
 ### Leader = " "
 

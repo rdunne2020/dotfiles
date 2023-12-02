@@ -22,3 +22,6 @@ plug "zap-zsh/atmachine-prompt"
 # Let C-arrow keys move words
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
+# Enable delete key, if this doesn't work run cat and press your delete key and see what code is printed to stdout
+bindkey "^[[3~" delete-char

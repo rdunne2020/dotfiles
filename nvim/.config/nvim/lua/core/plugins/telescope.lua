@@ -1,6 +1,7 @@
 local M = {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.1",
+    tag = "0.1.5",
+    -- branch = "0.1.1",
     cmd = "Telescope",
     dependencies = {
         "nvim-lua/plenary.nvim",

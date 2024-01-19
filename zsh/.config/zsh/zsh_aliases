@@ -2,6 +2,7 @@
 alias gitgraph='git log --graph --decorate --color --all --oneline'
 alias gs="git status"
 alias gbvv="git branch -vv"
+alias nvimdiff="nvim -d"
 
 function glog()
 {

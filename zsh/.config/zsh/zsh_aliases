@@ -1,6 +1,7 @@
 #alias ll='exa -lhb --octal-permissions'
 alias gitgraph='git log --graph --decorate --color --all --oneline'
 alias gs="git status"
+alias gd="git diff -w --color-words --color-moved"
 alias gbvv="git branch -vv"
 alias nvimdiff="nvim -d"
 

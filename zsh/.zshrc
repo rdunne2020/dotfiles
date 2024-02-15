@@ -34,3 +34,6 @@ BUN_LOCATION="${HOME}/.bun/_bun"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Zoxide
+eval "$(zoxide init --cmd cd zsh)"

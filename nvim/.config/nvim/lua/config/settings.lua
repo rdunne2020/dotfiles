@@ -75,6 +75,7 @@ M.lsp_servers = {
   "cmake",
   "cssls",
   "dockerls",
+  "golangci_lint_ls",
   "jsonls",
   "lua_ls",
   "pyright",

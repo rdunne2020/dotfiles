@@ -1,11 +1,11 @@
 local M = {
   "L3MON4D3/LuaSnip",
+  event = "InsertEnter",
   dependencies = {
-    -- Required to work with nvim-cmp
-    "saadparwaiz1/cmp_luasnip",
     -- Add already made snippets to it
     "rafamadriz/friendly-snippets",
   },
+  build = "make install_jsregexp",
   config = function()
     local ls = require("luasnip")
     local vsc = require("luasnip.loaders.from_vscode")

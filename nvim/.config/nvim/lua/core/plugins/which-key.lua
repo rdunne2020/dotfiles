@@ -1,41 +1,42 @@
-local M = {
-    "folke/which-key.nvim",
-    config = function()
-      local icons = require("config.utils.icons")
-      -- Set in options.lua
-      -- vim.o.timeout = true
-      -- vim.o.timeoutlen = 300
-      require("which-key").setup({
-        icons = {
-            breadcrumb = icons.arrows.DoubleArrowRight, -- symbol used in the command line area that shows your active key combo
-            separator = icons.arrows.SmallArrowRight, -- symbol used between a key and it's label
-            group = icons.ui.Plus, -- symbol prepended to a group
-        },
-        window = {
-            border = "none", -- none, single, double, shadow
-            position = "bottom", -- bottom, top
-            margin = { 0, 10, 3, 10 }, -- extra window margin [top, right, bottom, left]. When between 0 and 1, will be treated as a percentage of the screen size.
-            padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-        },
-        layout = {
-            spacing = 3,
-            align = center,
-        },
-        hidden = { 
-            "<silent>",
-            "<cmd>",
-            "<Cmd>",
-            "<CR>",
-            "<cr>",
-            "call",
-            "lua",
-            "require",
-            "Plug",
-            "^:",
-            "^ ",
-        }, -- hide mapping boilerplate
-      })
-    end,
+local icons = require("core.utils.icons")
+
+local default_config = {
+  opts = {
+    preset = "modern",
+    icons = {
+      rules = false, -- disable icons in keymaps
+      breadcrumb = icons.arrows.DoubleArrowRight, -- symbol used in the command line area that shows your active key combo
+      separator = icons.arrows.SmallArrowRight, -- symbol used between a key and it's label
+      group = icons.ui.Plus, -- symbol prepended to a group
+    },
+    layout = {
+      width = { min = 5, max = 50 }, -- min and max width of the columns
+      spacing = 10, -- spacing between columns
+      align = "center", -- align columns left, center or right
+    },
+    spec = {
+      { "<leader>b", group = "Buffers" },
+      { "<leader>f", group = "Files" },
+      { "<leader>l", group = "LSP" },
+      { "<leader>m", group = "Misc" },
+      { "<leader>q", group = "Quickfix" },
+      { "<leader>R", group = "Replace" },
+      { "<leader>mS", group = "TreeSJ" },
+      { "<leader>s", group = "Search" },
+      { "<leader>t", group = "Toggles" },
+      { "<leader>w", group = "Window" },
+      { "<leader>z", group = "Spelling" },
+    },
+  },
 }
 
-return M
+return {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts_extend = {"spec"},
+    opts = default_config,
+    config = function(_, opts)
+        local wk = require("which-key")
+        wk.setup(opts)
+    end,
+}

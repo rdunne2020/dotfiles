@@ -40,12 +40,9 @@ function M.on_attach(client, buffer)
   local keymaps = {}
   local wk = require("which-key")
 
-
-  wk.register({
-    l = {
-          w = {"Workspaces"},
-    },
-  }, {prefix = "<leader>", mode = "n"})
+  wk.add({
+    { "<leader>lw", desc="Workspaces"},
+  }) 
 
   for _, value in ipairs(M._keys) do
     local keys = Keys.parse(value)

@@ -41,6 +41,13 @@ config.keys = {
     -- Resize Panes
     { key = 'p', mods = 'LEADER', action = wezterm.action.ActivateTabRelative(-1) },
     { key = 'n', mods = 'LEADER', action = wezterm.action.ActivateTabRelative(1) },
+
+    -- Kill Pane
+    { key = 'w', mods = 'LEADER', action = wezterm.action.CloseCurrentPane { confirm = true }},
+    -- Kill Tab
+    { key = 'q', mods = 'LEADER', action = wezterm.action.CloseCurrentTab { confirm = true }},
+    -- Kill Wezterm
+    { key = 'q', mods = 'LEADER|SHIFT', action = wezterm.action.QuitApplication }
 }
 
 -- and finally, return the configuration to wezterm

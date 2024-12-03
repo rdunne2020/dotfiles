@@ -66,6 +66,7 @@ M.treesitter_ensure_installed = {
   "toml",
   "typescript",
   "yaml",
+  "zig",
 }
 
 M.lsp_servers = {
@@ -83,6 +84,7 @@ M.lsp_servers = {
   "terraformls",
   "rust_analyzer",
   "yamlls",
+  "zls"
 }
 
 return M

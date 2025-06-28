@@ -1,7 +1,22 @@
 local settings = require("config.settings")
 local utils = require("config.utils.functions")
 local o = vim.opt
+local g = vim.g
 local fn = vim.fn
+
+-- set clipboard for wsl
+-- g.clipboard = {
+--     name = "win32yank-wsl",
+--     copy = {
+--         ["+"] = "/path/to/win32yank.exe -i --crlf",
+--         ["*"] = "/path/to/win32yank.exe -i --crlf",
+--     },
+--     paste = {
+--         ["+"] = "/path/to/win32yank.exe -o --lf",
+--         ["*"] = "/path/to/win32yank.exe -o --lf",
+--     },
+--     cache_enabled = true,
+-- }
 
 -- vim.cmd("set inccommand=split")
 o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" -- block in normal and beam cursor in insert mode

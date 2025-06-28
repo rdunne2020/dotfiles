@@ -22,8 +22,8 @@ M._keys = {
   { "<leader>lk", vim.lsp.buf.hover, desc = "Hover" },
   { "<leader>lS", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
   -- { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
-  { "<leader>ln", vim.diagnostic.goto_next, desc = "Next Diagnostic" },
-  { "<leader>lp", vim.diagnostic.goto_prev, desc = "Prev Diagnostic" },
+  { "<leader>ln", function() vim.diagnostic.jump({count = 1, float = true}) end, desc = "Next Diagnostic" },
+  { "<leader>lp", function() vim.diagnostic.jump({count = -1, float = true}) end, desc = "Prev Diagnostic" },
   { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
   { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
   { "<leader>le", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document Diagnostics" },
@@ -42,7 +42,7 @@ function M.on_attach(client, buffer)
 
   wk.add({
     { "<leader>lw", desc="Workspaces"},
-  }) 
+  })
 
   for _, value in ipairs(M._keys) do
     local keys = Keys.parse(value)

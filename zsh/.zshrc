@@ -3,7 +3,7 @@
 
 # Plugins
 plug "zsh-users/zsh-autosuggestions"
-plug "marlonrichert/zsh-autocomplete"
+# plug "marlonrichert/zsh-autocomplete"
 plug "zsh-users/zsh-syntax-highlighting"
 
 # Load my aliases before we set ls == exa
@@ -34,6 +34,8 @@ BUN_LOCATION="${HOME}/.bun/_bun"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+export EDITOR=$(which nvim)
 
 # Zoxide
 eval "$(zoxide init --cmd cd zsh)"

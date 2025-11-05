@@ -1,9 +1,14 @@
 #alias ll='exa -lhb --octal-permissions'
+alias bcat='bat -Pp'
 alias gitgraph='git log --graph --decorate --color --all --oneline'
 alias gs="git status"
 alias gd="git diff -w --color-words --color-moved"
+alias gc="git commit"
+alias gca="git commit --amend"
+alias ga="git add"
 alias gbvv="git branch -vv"
 alias nvimdiff="nvim -d"
+alias rp="rsync -avP"
 
 function glog()
 {

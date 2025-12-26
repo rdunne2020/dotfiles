@@ -11,6 +11,8 @@ local M = {
 
         -- Install LSPs
         require("mason-lspconfig").setup({
+            -- stop mason from launching lsps automatically as it conflicts with lsp.lua
+            automatic_enable = false,
             ensure_installed = settings.lsp_servers
         })
     end,

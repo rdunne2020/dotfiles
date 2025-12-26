@@ -22,7 +22,8 @@ local fn = vim.fn
 o.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50" -- block in normal and beam cursor in insert mode
 o.updatetime = 300 -- faster completion
 o.timeoutlen = 400 -- time to wait for a mapped sequence to complete (in milliseconds)
-o.ttimeoutlen = 0 -- Time in milliseconds to wait for a key code sequence to complete
+-- aggressively short timeouts can cause weirdness with wezterm's handling of escape characters
+-- o.ttimeoutlen = 0 -- Time in milliseconds to wait for a key code sequence to complete
 o.backup = false -- creates a backup file
 o.swapfile = true -- enable/disable swap file creation
 o.dir = fn.stdpath("data") .. "/swp" -- swap file directory

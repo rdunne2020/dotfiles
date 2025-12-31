@@ -22,8 +22,8 @@ config.window_background_opacity = 0.8
 -- Keybinds
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds=1000}
 config.keys = {
-    { key = '%', mods = 'LEADER|SHIFT', action = wezterm.action.SplitHorizontal{ domain = 'CurrentPaneDomain' }},
-    { key = '"', mods = 'LEADER|SHIFT', action = wezterm.action.SplitVertical{ domain = 'CurrentPaneDomain' }},
+    { key = '%', mods = 'LEADER', action = wezterm.action.SplitHorizontal{ domain = 'CurrentPaneDomain' }},
+    { key = '"', mods = 'LEADER', action = wezterm.action.SplitVertical{ domain = 'CurrentPaneDomain' }},
     { key = 'c', mods = 'LEADER', action = wezterm.action.SpawnTab 'CurrentPaneDomain' },
 
     -- Cycle through panes
